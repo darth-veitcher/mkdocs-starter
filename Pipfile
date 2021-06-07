@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+dagster = "*"
+dagit = "*"
+requests = "*"
+
+[dev-packages]
+mkdocs = "*"
+mkdocs-material = "*"
+pymdown-extensions = "*"
+flake8 = "*"
+mkdocs-minify-plugin = "*"
+
+[requires]
+python_version = "3.9"
