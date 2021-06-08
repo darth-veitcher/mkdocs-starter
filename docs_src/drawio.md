@@ -5,16 +5,16 @@ The template for this project has a modified `footer` which can be found at [doc
 To use draw.io diagrams inside the documentation use the following syntax.
 
 ```html
-<div class="dynamic-graph" data-mxgraph-path="/mydiagram.drawio"></div>
+<div class="dynamic-graph" data-mxgraph-path="mydiagram.drawio"></div>
 ```
 
 It will show up as per below.
 
-<div class="dynamic-graph" data-mxgraph-path="/diagrams/gcp.drawio"></div>
+<div class="dynamic-graph" data-mxgraph-path="diagrams/gcp.drawio"></div>
 
 ## File locations
 
-The `.drawio` file is passed in as `data-mxgraph-path` relative to the documentation root. For example a simple, flat structure like this results in `data-mxgraph-path="/gcp.drawio"` (because it is at the root of the site with the index).
+The `.drawio` file is passed in as `data-mxgraph-path` relative to the documentation root. For example a simple, flat structure like this results in `data-mxgraph-path="gcp.drawio"` (because it is at the root of the site with the index).
 
 ```null
 docs_src
@@ -26,7 +26,7 @@ docs_src
         └── footer.html
 ```
 
-If you structure the documentation (like me) with folders associated with resources then this becomes `data-mxgraph-path="/diagrams/gcp.drawio"`
+If you structure the documentation (like me) with folders associated with resources then this becomes `data-mxgraph-path="diagrams/gcp.drawio"`
 
 ```null
 docs_src
