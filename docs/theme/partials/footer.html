@@ -1,85 +1,55 @@
+<!-- custom fork from https://github.com/squidfunk/mkdocs-material/blob/master/material/partials/footer.html -->
 {% import "partials/language.html" as lang with context %}
 <footer class="md-footer">
   {% if page.previous_page or page.next_page %}
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        {% if page.previous_page %}
-          <a href="{{ page.previous_page.url | url }}" title="{{ page.previous_page.title | striptags }}" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  {{ lang.t("footer.previous") }}
-                </span>
-                {{ page.previous_page.title }}
+    <nav class="md-footer__inner md-grid" aria-label="{{ lang.t('footer.title') }}">
+      {% if page.previous_page %}
+        {% set direction = lang.t("footer.previous") %}
+        <a href="{{ page.previous_page.url | url }}" class="md-footer__link md-footer__link--prev" aria-label="{{ direction }}: {{ page.previous_page.title }}" rel="prev">
+          <div class="md-footer__button md-icon">
+            {% include ".icons/material/arrow-left.svg" %}
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                {{ direction }}
               </span>
+              {{ page.previous_page.title }}
             </div>
-          </a>
-        {% endif %}
-        {% if page.next_page %}
-          <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | striptags }}" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  {{ lang.t("footer.next") }}
-                </span>
-                {{ page.next_page.title }}
+          </div>
+        </a>
+      {% endif %}
+      {% if page.next_page %}
+        {% set direction = lang.t("footer.next") %}
+        <a href="{{ page.next_page.url | url }}" class="md-footer__link md-footer__link--next" aria-label="{{ direction }}: {{ page.next_page.title }}" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                {{ direction }}
               </span>
+              {{ page.next_page.title }}
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        {% endif %}
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            {% include ".icons/material/arrow-right.svg" %}
+          </div>
+        </a>
+      {% endif %}
+    </nav>
   {% endif %}
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
-        <div class="md-footer-copyright__highlight" id="copy">
-            <!-- &copy Darth Veitcher 2019-&date -->
-        </div>
-        <script type="text/javascript">
+        {% if config.copyright %}
+          <div class="md-footer-copyright__highlight" id="copy">
+            {{ config.copyright }}
+          </div>
+          <script type="text/javascript">
             let theDate=new Date();
-            copy.innerHTML = "&copy Darth Veitcher "+theDate.getFullYear();
-        </script>
-      </div>
+            copy.innerHTML = "&copy "+copy.innerHTML+" "+theDate.getFullYear();
+          </script>
+        {% endif %}
       {% include "partials/social.html" %}
     </div>
   </div>
-  <!-- https://github.com/sakumikko/mkdocs-drawio -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script>
-      var graphJson = { 
-          "highlight":"#0000ff",
-          "nav":true,
-          "resize":true,
-          "toolbar": "zoom layers lightbox" 
-          }
-      var graphJsonLite = { 
-          "highlight":"#0000ff",
-          "nav":false,
-          "resize":true
-          }
-      window.onDrawioViewerLoad = function() {
-          $("div[data-mxgraph-path]").each(function(index, element){
-              fetch($(element).data("mxgraph-path"))
-              .then(function(response){
-                  return response.text()
-              })
-              .then(function(text){
-                  var jsonText = JSON.stringify(
-                      Object.assign({}, graphJson, {xml: text})
-                      )
-                  element.setAttribute("data-mxgraph", jsonText) 
-                  GraphViewer.createViewerForElement(element)
-              })
-          })
-      }
-  </script>
-  <script src="https://www.draw.io/js/viewer.min.js">
-  </script>
 </footer>
