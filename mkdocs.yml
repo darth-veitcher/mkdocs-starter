@@ -6,6 +6,7 @@ site_description: 'Make documentation easy'
 # Nav
 nav:
   - 'Introduction': index.md
+  - 'Embed draw.io': drawio.md
 
 # Repository
 repo_name: 'darth-veitcher/mkdocs-starter'

@@ -1,38 +1,49 @@
 # Introduction
 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.
+This project is an example skeleton for a repository with documentation supported by [mkdocs](https://www.mkdocs.org) and published through GitHub Pages. It can be cloned and modified to kickstart off development, removing the need for time consuming configuration of good quality docs.
+
+It supports the following:
+
+* Publishing with Github Pages (using `master` branch and `/docs`)
+* Mkdocs material theme
+* Dark/Light mode
+* Customised theme
+* Embedding of interactive draw.io diagrams
+* Built in search across the documentation
 
 ## Getting Started
 
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
+### Installation
 
-1. Installation process
-2. Software dependencies
-3. Latest releases
-4. API references
+Simply clone the repository and then overwrite with your own.
 
-## Build and Test
+```zsh
+# clone
+git clone git@github.com:darth-veitcher/mkdocs-starter.git new-project
+```
 
-TODO: Describe and show how to build your code and run the tests.
+```zsh
+# overwrite and initialise a new empty one
+cd new-project
+rm -rf .git/
+git init .
+```
+
+### Usage
+
+To build and launch the documentation the requirements have been configured as development dependencies. Install these with `pipenv install --dev`.
+
+Build the documentation with `pipenv run mkdocs build` or view a preview of the documentation with `pipenv run mkdocs serve`.
+
+The output from the `build` process is a html website in the `/docs` folder whereas a `serve` command runs a local webserver available at [http://127.0.0.1:8000](http://127.0.0.1:8000) for viewing of the documentation.
+
+### Dependencies
+
+* Python 3
+* Pipenv (can be installed with `pip`)
+
+The project ships with a `Pipfile` for use with [pipenv](https://pipenv.pypa.io/en/latest/). Depending on your shell configuration this may automatically be detected and configured for you, otherwise please install the `--dev` requirements.
 
 ## Contribute
 
-TODO: Explain how other users and developers can contribute to make your code better.
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
-
-## Embed draw.io
-
-To use draw.io diagrams inside the documentation use the following syntax.
-
-```html
-<div class="dynamic-graph" data-mxgraph-path="gcp.drawio"></div>
-```
-
-It will show up as per below.
-
-<div class="dynamic-graph" data-mxgraph-path="gcp.drawio"></div>
+Pull requests and contributions are welcome. This is designed to be a fairly minimal starter project.
