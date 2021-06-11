@@ -29,6 +29,13 @@ rm -rf .git/
 git init .
 ```
 
+Replace the existing `index.md` with a link of your README.
+
+```zsh
+rm -f docs_src/index.md 
+ln README.md docs_src/index.md
+```
+
 ### Usage
 
 To build and launch the documentation the requirements have been configured as development dependencies. Install these with `pipenv install --dev`.
