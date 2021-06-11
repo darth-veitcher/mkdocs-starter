@@ -2,6 +2,8 @@
 
 This project is an example skeleton for a repository with documentation supported by [mkdocs](https://www.mkdocs.org) and published through GitHub Pages. It can be cloned and modified to kickstart off development, removing the need for time consuming configuration of good quality docs.
 
+To see the current repository in action see [docs.jamesveitch.dev/mkdocs-starter](https://docs.jamesveitch.dev/mkdocs-starter/)
+
 It supports the following:
 
 * Publishing with Github Pages (using `master` branch and `/docs`)
